@@ -38,6 +38,16 @@ namespace MySpaceInvanders
                     Move.Completed += MoveStars;
                     Move.Begin();
                 };
+
+#if WINDOWS_PHONE_APP
+            App.ScreenWidth = Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Bounds.Width;
+            App.ScreenHeight = Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Bounds.Height;
+#endif
+#if WINDOWS_APP
+
+            App.ScreenWidth = Window.Current.Bounds.Width;
+            App.ScreenHeight = Window.Current.Bounds.Height;
+#endif
         }
 
         private void OnStart(object sender, RoutedEventArgs e)

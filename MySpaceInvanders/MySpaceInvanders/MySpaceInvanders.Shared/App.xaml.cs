@@ -26,6 +26,10 @@ namespace MySpaceInvanders
     /// </summary>
     public sealed partial class App : Application
     {
+        public static double ScreenWidth { get; set; }
+        public static double ScreenHeight { get; set; }
+        public static int Highscore { get; set; }
+
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif

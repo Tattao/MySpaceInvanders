@@ -124,19 +124,27 @@ namespace MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
-            _typeNameTable[0] = "MySpaceInvanders.Ship";
+            _typeNameTable = new string[9];
+            _typeNameTable[0] = "MySpaceInvanders.Bobo";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "MySpaceInvanders.GamePage";
-            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[4] = "MySpaceInvanders.StartPage";
+            _typeNameTable[2] = "Int32";
+            _typeNameTable[3] = "Windows.Foundation.Point";
+            _typeNameTable[4] = "Boolean";
+            _typeNameTable[5] = "MySpaceInvanders.Ship";
+            _typeNameTable[6] = "MySpaceInvanders.GamePage";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[8] = "MySpaceInvanders.StartPage";
 
-            _typeTable = new global::System.Type[5];
-            _typeTable[0] = typeof(global::MySpaceInvanders.Ship);
+            _typeTable = new global::System.Type[9];
+            _typeTable[0] = typeof(global::MySpaceInvanders.Bobo);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::MySpaceInvanders.GamePage);
-            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[4] = typeof(global::MySpaceInvanders.StartPage);
+            _typeTable[2] = typeof(global::System.Int32);
+            _typeTable[3] = typeof(global::Windows.Foundation.Point);
+            _typeTable[4] = typeof(global::System.Boolean);
+            _typeTable[5] = typeof(global::MySpaceInvanders.Ship);
+            _typeTable[6] = typeof(global::MySpaceInvanders.GamePage);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[8] = typeof(global::MySpaceInvanders.StartPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -171,9 +179,10 @@ namespace MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_Ship() { return new global::MySpaceInvanders.Ship(); }
-        private object Activate_2_GamePage() { return new global::MySpaceInvanders.GamePage(); }
-        private object Activate_4_StartPage() { return new global::MySpaceInvanders.StartPage(); }
+        private object Activate_0_Bobo() { return new global::MySpaceInvanders.Bobo(); }
+        private object Activate_5_Ship() { return new global::MySpaceInvanders.Ship(); }
+        private object Activate_6_GamePage() { return new global::MySpaceInvanders.GamePage(); }
+        private object Activate_8_StartPage() { return new global::MySpaceInvanders.StartPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -185,9 +194,13 @@ namespace MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  MySpaceInvanders.Ship
+            case 0:   //  MySpaceInvanders.Bobo
                 userType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_0_Ship;
+                userType.Activator = Activate_0_Bobo;
+                userType.AddMemberName("AreaWidth");
+                userType.AddMemberName("Location");
+                userType.AddMemberName("Dead");
+                userType.AddMemberName("Worth");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -196,20 +209,39 @@ namespace MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo
                 xamlType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  MySpaceInvanders.GamePage
-                userType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_2_GamePage;
+            case 2:   //  Int32
+                xamlType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Windows.Foundation.Point
+                xamlType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  Boolean
+                xamlType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  MySpaceInvanders.Ship
+                userType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_5_Ship;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 3:   //  Windows.UI.Xaml.Controls.Page
+            case 6:   //  MySpaceInvanders.GamePage
+                userType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_GamePage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  MySpaceInvanders.StartPage
+            case 8:   //  MySpaceInvanders.StartPage
                 userType = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_StartPage;
+                userType.Activator = Activate_8_StartPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -218,11 +250,79 @@ namespace MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo
         }
 
 
+        private object get_0_Bobo_AreaWidth(object instance)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            return that.AreaWidth;
+        }
+        private void set_0_Bobo_AreaWidth(object instance, object Value)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            that.AreaWidth = (global::System.Int32)Value;
+        }
+        private object get_1_Bobo_Location(object instance)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            return that.Location;
+        }
+        private void set_1_Bobo_Location(object instance, object Value)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            that.Location = (global::Windows.Foundation.Point)Value;
+        }
+        private object get_2_Bobo_Dead(object instance)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            return that.Dead;
+        }
+        private void set_2_Bobo_Dead(object instance, object Value)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            that.Dead = (global::System.Boolean)Value;
+        }
+        private object get_3_Bobo_Worth(object instance)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            return that.Worth;
+        }
+        private void set_3_Bobo_Worth(object instance, object Value)
+        {
+            var that = (global::MySpaceInvanders.Bobo)instance;
+            that.Worth = (global::System.Int32)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "MySpaceInvanders.Bobo.AreaWidth":
+                userType = (global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MySpaceInvanders.Bobo");
+                xamlMember = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlMember(this, "AreaWidth", "Int32");
+                xamlMember.Getter = get_0_Bobo_AreaWidth;
+                xamlMember.Setter = set_0_Bobo_AreaWidth;
+                break;
+            case "MySpaceInvanders.Bobo.Location":
+                userType = (global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MySpaceInvanders.Bobo");
+                xamlMember = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlMember(this, "Location", "Windows.Foundation.Point");
+                xamlMember.Getter = get_1_Bobo_Location;
+                xamlMember.Setter = set_1_Bobo_Location;
+                break;
+            case "MySpaceInvanders.Bobo.Dead":
+                userType = (global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MySpaceInvanders.Bobo");
+                xamlMember = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlMember(this, "Dead", "Boolean");
+                xamlMember.Getter = get_2_Bobo_Dead;
+                xamlMember.Setter = set_2_Bobo_Dead;
+                break;
+            case "MySpaceInvanders.Bobo.Worth":
+                userType = (global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MySpaceInvanders.Bobo");
+                xamlMember = new global::MySpaceInvanders.MySpaceInvanders_Windows_XamlTypeInfo.XamlMember(this, "Worth", "Int32");
+                xamlMember.Getter = get_3_Bobo_Worth;
+                xamlMember.Setter = set_3_Bobo_Worth;
+                break;
+            }
             return xamlMember;
         }
     }
