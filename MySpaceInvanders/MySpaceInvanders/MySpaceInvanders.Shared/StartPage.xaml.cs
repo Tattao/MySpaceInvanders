@@ -42,7 +42,7 @@ namespace MySpaceInvanders
 
         private void OnStart(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(GamePage));
         }
 
         private void CreateStar()

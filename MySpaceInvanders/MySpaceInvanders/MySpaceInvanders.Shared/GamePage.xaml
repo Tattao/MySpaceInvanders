@@ -7,7 +7,85 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="LeftArea" Width="2*"/>
+            <ColumnDefinition x:Name="MiddleArea" Width="12*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="RoyalBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Highscore:" Grid.Row="0" Margin="5,0"/>
+            <TextBlock x:Name="HighscoreBoard" Grid.Row="0" Text="0" Margin="5,32"/>
+            <TextBlock x:Name="ScoreTitle" Text="Score:" Grid.Row="0" Margin="5,64"/>
+            <TextBlock x:Name="ScoreBoard" Grid.Row="0" Text="0" Margin="5,73,0,0"/>
+            <Grid x:Name="LeftCanvas" Grid.Row="2" 
+                    VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Left" 
+                    PointerPressed="ToLeftPressed" 
+                    PointerReleased="ToLeftReleased" 
+                    PointerExited="ToLeftExited" >
+                <Ellipse x:Name="ToLeft" Stretch="Uniform" Fill="Azure"/>
+                <Polygon Stroke="Black" Fill="Blue" Stretch="Uniform"
+                         Points="5,40,60,10,60,70" RenderTransformOrigin="0.5,0.5">
+                    <Polygon.RenderTransform>
+                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                    </Polygon.RenderTransform>
+                </Polygon>
+            </Grid>
+            <Grid x:Name="RightCanvas" Grid.Row="2" 
+                    VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Right" 
+                    PointerPressed="ToRightPressed" 
+                    PointerReleased="ToRightReleased" 
+                    PointerExited="ToRightExited" >
+                <Ellipse x:Name="ToRight" Stretch="Uniform" Fill="Azure"/>
+                <Polygon Stroke="Black" Fill="Blue" Stretch="Uniform"
+                         Points="75,40,25,10,25,70" RenderTransformOrigin="0.5,0.5">
+                    <Polygon.RenderTransform>
+                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                    </Polygon.RenderTransform>
+                </Polygon>
+            </Grid>
+        </Grid>
+        <Canvas x:Name="LayoutRoot" 
+                Background="Black" 
+                Grid.Column="1">
+            <Canvas.Resources>
+                <Storyboard x:Name="Move"/>
+            </Canvas.Resources>
 
+            <local:Ship x:Name="Rocket"/>
+        </Canvas>
+        <Grid x:Name="FireButton" Grid.Column="2" 
+              VerticalAlignment="Bottom" 
+              HorizontalAlignment="Right" 
+              Tapped="OnFire">
+            <Ellipse Width="100" Height="100" 
+                     VerticalAlignment="Top" 
+                     HorizontalAlignment="Center">
+                <Ellipse.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#9AA20000" Offset="1"/>
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Width="70" Height="70" 
+                     VerticalAlignment="Center" 
+                     HorizontalAlignment="Center">
+                <Ellipse.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#00FF8585" Offset="0"/>
+                        <GradientStop Color="#1AFFFFFF" Offset="1"/>
+                        <GradientStop Color="#3FF5C2C2" Offset="0.349"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
     </Grid>
 </Page>
